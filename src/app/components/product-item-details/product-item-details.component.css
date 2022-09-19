@@ -1,0 +1,40 @@
+img {
+    border-radius: 10px;
+    width: 350px;
+    height: 600px;
+}
+  
+.select-input {
+    width: 108px; 
+    margin-bottom: 8px;
+}
+  
+.detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px;
+}
+  
+.detail-item {
+    margin-left: 128px;
+    margin-right: 128px;
+}
+
+.product-item-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    max-width: 1024px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+label {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.back-link {
+    margin-top: 8px;
+}

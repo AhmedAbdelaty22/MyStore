@@ -1,0 +1,60 @@
+<div *ngIf="product" class="detail-container">
+    <div  fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <div fxLayout="column" fxLayoutAlign="space-between center">
+            <img class="product-image" src='{{ product.url}}'>
+        </div>
+        <div class="detail-item">
+
+            <div>
+                <label>Title</label>
+                <br>
+                <div class="product-item-detail">{{ product.name }}</div>
+            </div>
+
+            <br>
+
+            <div>
+                <label>Price</label>
+                <br>
+                <div class="product-item-detail" >${{ product.price }}</div>
+            </div>
+
+            <br>
+
+            <div>
+                <label>Description</label>
+                <div class="product-item-detail" >{{ product.description }}</div>
+            </div>
+
+            <br>
+
+            <div>
+                <label>Amount</label>
+                <form (ngSubmit)="onSubmit(product, $event)">
+                    <select style="width: 100px;"  class="product-item-detail form-select" aria-label="Default select example">
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="5">6</option>
+                        <option value="5">7</option>
+                        <option value="5">8</option>
+                        <option value="5">9</option>
+                        <option value="5">10</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Add to Cart" class="btn btn-primary">
+                </form>
+            </div>
+
+            <br>
+            
+            <div class="product-item-detail">
+                <a routerLink="/" class="btn btn-secondary">
+                    Return to product list
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

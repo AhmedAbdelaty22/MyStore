@@ -1,0 +1,32 @@
+<form class="form-margin" #form="ngForm"  (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <br>
+        <input class="form-control" type='text' name='name' required minlength="9" placeholder="Enter Your Name" [(ngModel)]="name">
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label for="address">Address</label>
+        <br>
+        <input class="form-control" type='text' name='address' required  minlength="10" placeholder="Enter Your Address" [(ngModel)]="address">
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <label for="creditCard">Credit Card Number</label>
+        <br>
+        <span>Enter Your Credit Card Number (16-number only)</span>
+        <br>
+        <input class="form-control" type='number' name='creditCard' required  minlength="16" maxlength="16" [(ngModel)]="creditCard">    
+    </div>
+    
+    <br>
+
+    <div class="form-group">
+        <input [disabled]="form.invalid" class="form-control btn" type='submit' value="Submit" class="btn btn-success" />
+    </div>
+</form>
