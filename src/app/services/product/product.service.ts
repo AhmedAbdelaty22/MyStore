@@ -13,24 +13,17 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result as T);
-    };
-  }
-
   getProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.url);
   }
 
-  addProductToCart(product: Product[]): void{
+  addProductToCart(product: Product[]){
     this.storage.setItem('cart', JSON.stringify(product));
   }
 
-  getProductsInCart(): Product[] | []{
-    const getProduct = this.storage.getItem('cart')
-    return getProduct? JSON.parse(getProduct): [];
+  getProductsInCart(): Product[]{
+    const getProducts = this.storage.getItem('cart')
+    return getProducts? JSON.parse(getProducts): [];
   }
 
   clearCart(): void{

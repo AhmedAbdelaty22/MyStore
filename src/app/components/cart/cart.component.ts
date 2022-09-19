@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product, productCount } from 'src/app/models/product';
+import { Product, count } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
 
   products: Product[] = [];
   productsInCart: Product[] = [];
-  productCount: string[] = productCount;
+  count: string[] = count;
   totalPrice: number = 0;
 
   constructor(private service: ProductService, private route: Router) { }

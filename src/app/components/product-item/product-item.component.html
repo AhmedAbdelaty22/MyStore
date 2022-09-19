@@ -8,7 +8,7 @@
     <form (ngSubmit)="onSubmit(productItem, $event)">
         <select  class="product-detail form-select" aria-label="Default select example">
             <option 
-                *ngFor="let product_option of productCount" 
+                *ngFor="let product_option of count" 
                 [ngValue]="product_option"
                 [selected]="product_option === '1'">
                 {{ product_option }}

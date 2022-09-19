@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product, productCount } from 'src/app/models/product';
+import { Product, count } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() productItem!: Product;
-  productCount: string[] = productCount;
+  count: string[] = count;
 
   constructor(private service: ProductService) { }
 
