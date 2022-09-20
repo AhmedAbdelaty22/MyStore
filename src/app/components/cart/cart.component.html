@@ -1,32 +1,32 @@
 <div *ngIf="productsInCart.length; else noCart" class="cart-container">
     <div class="cart-item-details">
-        <div *ngFor="let cartProduct of productsInCart" class="cart-item">
-            <img src='{{cartProduct.url}}'>
+        <div *ngFor="let productInCart of productsInCart" class="cart-item">
+            <img src='{{productInCart.url}}'>
             <div class="cart-panel">
                 <div>
                     <label>Title</label>
-                    <div class="product-item-details">{{ cartProduct.name}}</div>
+                    <div class="product-item-details">{{ productInCart.name}}</div>
                 </div>
                 <br>
                 <div>
                     <label>Price</label>
-                    <div class="product-item-details">$ {{ cartProduct.price}}</div>
+                    <div class="product-item-details">$ {{ productInCart.price}}</div>
                 </div>
                 <br>
                 <div>
                     <label>Amount</label>
-                    <select class="product-item-details" (change)="selectOption(cartProduct.id, $event)"  style="width: 100px;"  class="form-select" aria-label="Default select example">
+                    <select class="product-item-details" (change)="selectOption(productInCart.id, $event)"  class="form-select">
                         <option 
-                            *ngFor="let product_option of count" 
-                            [ngValue]="product_option"
-                            [selected]="cartProduct.option === product_option">
-                            {{ product_option }}
+                            *ngFor="let productCount of count" 
+                            [ngValue]="productCount"
+                            [selected]="productInCart.option === productCount">
+                            {{ productCount }}
                         </option>
                     </select>     
                 </div>
                 <br>
                 <div>
-                    <button (click)="removeProductFromCart(cartProduct.id)"  class="btn btn-danger">Remove</button>
+                    <button (click)="removeProductFromCart(productInCart.id)"  class="btn btn-danger">Remove</button>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
     
     <div class="form-margin">
         <app-info (confirmation)="confirmation($event)"></app-info>
-        <div class="price"><p>Total Price</p>${{ totalPrice }}</div>
+        <div class="price"><p>Total Price</p>${{ price }}</div>
     </div>
 </div>
 <ng-template #noCart>

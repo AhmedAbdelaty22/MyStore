@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   products: Product[] = [];
   productsInCart: Product[] = [];
   count: string[] = count;
-  totalPrice: number = 0;
+  price: number = 0;
 
   constructor(private service: ProductService, private route: Router) { }
 
@@ -40,15 +40,15 @@ export class CartComponent implements OnInit {
   }
 
   calculateTotalPrice(): void{
-    this.totalPrice = this.productsInCart.reduce((acc: number, val: any) =>{
+    this.price = this.productsInCart.reduce((acc: number, val: any) =>{
       return acc + val.price * Number(val.option);
     }, 0);
-    this.totalPrice = Number(this.totalPrice.toFixed(2));
+    this.price = Number(this.price.toFixed(2));
   }
 
   confirmation(name: string): void{
     this.service.clearCart();
-    this.route.navigateByUrl(`success/${name}/${this.totalPrice}`);
+    this.route.navigateByUrl(`success/${name}/${this.price}`);
   }
 
 }

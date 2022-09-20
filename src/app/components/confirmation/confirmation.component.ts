@@ -9,14 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 export class ConfirmationComponent implements OnInit {
   
   name: string | null = '';
-  totalPrice: number | null = 0;
+  price: number | null = 0;
   
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.name = String(params.get('name'));
-      this.totalPrice = Number(params.get('totalPrice'));
+      this.price = Number(params.get('price'));
     })
   }
 
