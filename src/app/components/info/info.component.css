@@ -1,0 +1,18 @@
+.form-margin {
+    margin-bottom: 12px;
+}
+
+.form-group {
+    padding: 0px;
+    margin-left: 30px;
+    width: 500px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn {
+    width: 100%;
+}

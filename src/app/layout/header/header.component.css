@@ -1,0 +1,21 @@
+.header {
+    text-align: center;
+    background: #33B5E5;
+    color: #fff;
+    padding: 12px;
+}
+
+.navbar {
+    margin: 7px; 
+}
+
+.nav-item{
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}

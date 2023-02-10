@@ -1,0 +1,49 @@
+<div *ngIf="productsInCart.length; else noCart" class="cart-container">
+    <div class="cart-item-details">
+        <div *ngFor="let productInCart of productsInCart" class="cart-item">
+            <img src='{{productInCart.url}}'>
+            <div class="cart-panel">
+                <div>
+                    <label>Title</label>
+                    <div class="product-item-details">{{ productInCart.name}}</div>
+                </div>
+                <br>
+                <div>
+                    <label>Price</label>
+                    <div class="product-item-details">$ {{ productInCart.price}}</div>
+                </div>
+                <br>
+                <div>
+                    <label>Amount</label>
+                    <select class="product-item-details" (change)="selectOption(productInCart.id, $event)"  class="form-select">
+                        <option 
+                            *ngFor="let productCount of count" 
+                            [ngValue]="productCount"
+                            [selected]="productInCart.option === productCount">
+                            {{ productCount }}
+                        </option>
+                    </select>     
+                </div>
+                <br>
+                <div>
+                    <button (click)="removeProductFromCart(productInCart.id)"  class="btn btn-danger">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-margin">
+        <app-info (confirmation)="confirmation($event)"></app-info>
+        <div class="price"><p>Total Price</p>${{ price }}</div>
+    </div>
+</div>
+<ng-template #noCart>
+    <div class="empty-cart-message">
+        <p style="font-size: 30px;"><b>Cart is Empty! Please add products to cart</b></p> 
+    </div>
+    <div class="empty-cart-message">
+        <a routerLink="/" class="btn btn-secondary">
+            Return to product list
+        </a>
+    </div>
+</ng-template>
