@@ -1,27 +1,59 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+A single-page online store built with Angular 14. You can browse products, add them to a cart, change quantities and check out.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Product list:** browse all products with their image, price and a quantity picker.
+- **Product details:** a separate page for each product with its description.
+- **Cart**
+  - Add a product from the list or from its details page.
+  - Choose a quantity from 1 to 10. If the product is already in the cart, its quantity is updated.
+  - Remove products from the cart.
+  - The total price updates automatically.
+  - The cart is saved in the browser's `localStorage`, so it's still there after a page refresh.
+- **Checkout form** (template-driven, with validation)
+  - Name: at least 9 characters
+  - Address: at least 10 characters
+  - Card number: 16 digits
+- **Order confirmation page** showing the customer's name and the order total.
 
-## Code scaffolding
+This is a front-end demo with no back end. The checkout doesn't process payments, and the card number isn't saved or sent anywhere.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Angular concepts used
 
-## Build
+- Components with `@Input()` and `@Output()` (`EventEmitter`) to pass data between parent and child components
+- A service (`ProductService`) shared through dependency injection
+- `HttpClient` to load products from `src/assets/data.json`
+- Routing with route parameters (`item-detail/:id`, `success/:name/:price`)
+- Template-driven forms with `ngModel` and validation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Project structure
 
-## Running unit tests
+| Folder | What's inside |
+|---|---|
+| `src/app/components/product-list` | The product list page |
+| `src/app/components/product-item` | One product card in the list |
+| `src/app/components/product-item-details` | The product details page |
+| `src/app/components/cart` | The cart page and total price |
+| `src/app/components/info` | The checkout form |
+| `src/app/components/confirmation` | The order confirmation page |
+| `src/app/layout/header` | The header and navigation |
+| `src/app/services/product` | Loads products and manages the cart |
+| `src/assets/data.json` | The product data |
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tech stack
 
-## Running end-to-end tests
+- Angular 14, TypeScript, RxJS
+- Bootstrap 5, ng-bootstrap, Angular Flex Layout
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## How to run
 
-## Further help
+You need [Node.js](https://nodejs.org/).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm install
+npx ng serve
+```
+
+Then open `http://localhost:4200`. Keep the default port 4200, because the product data is loaded from `http://localhost:4200/assets/data.json`.
